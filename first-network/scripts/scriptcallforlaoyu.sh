@@ -60,7 +60,7 @@ instantiateChaincode2() {
 
 	## Install chaincode on peer0.org1
 	echo "init chaincode on peer0.org1..."
-	instantiateChaincode2 0 1
+#	instantiateChaincode2 0 1
 	# Query on chaincode on peer0.org1, check if the result is 90
 	echo "Querying chaincode on peer0.org1..."
 	chaincodeQuery 0 1 80
