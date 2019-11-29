@@ -27,7 +27,7 @@ fi
 
 echo "Channel name : "$CHANNEL_NAME
 export PATH=${PWD}/../bin:${PWD}:$PATH
-export FABRIC_CFG_PATH=../
+export FABRIC_CFG_PATH=${PWD}
 export VERBOSE=false
 echo $FABRIC_CFG_PATH
 instantiateChaincode2() {
