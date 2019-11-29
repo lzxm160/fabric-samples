@@ -58,7 +58,7 @@ chaincodeQuery2() {
     sleep $DELAY
     echo "Attempting to Query peer${PEER}.org${ORG} ...$(($(date +%s) - starttime)) secs"
     set -x
-    peer chaincode query -C $CHANNEL_NAME -n myccc -c '{"Args":["query","123"]}' >&log.txt
+    peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}' >&log.txt
     res=$?
     set +x
     test $res -eq 0 && VALUE=$(cat log.txt | awk '/Query Result/ {print $NF}')
@@ -80,14 +80,38 @@ chaincodeQuery2() {
     exit 1
   fi
 }
+chaincodeInvoke() {
+  parsePeerConnectionParameters $@
+  res=$?
+  verifyResult $res "Invoke transaction failed on channel '$CHANNEL_NAME' due to uneven number of peer and org parameters "
 
+  # while 'peer chaincode' command can get the orderer endpoint from the
+  # peer (if join was successful), let's supply it directly as we know
+  # it using the "-o" option
+  if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
+    set -x
+    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["invoke","a","b","10"]}' >&log.txt
+    res=$?
+    set +x
+  else
+    set -x
+    peer chaincode invoke -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["invoke","a","b","10"]}' >&log.txt
+    res=$?
+    set +x
+  fi
+  cat log.txt
+  verifyResult $res "Invoke execution on $PEERS failed "
+  echo "===================== Invoke transaction successful on $PEERS on channel '$CHANNEL_NAME' ===================== "
+  echo
+}
 # import utils
 . scripts/utils.sh
 
 	## Install chaincode on peer0.org1
 	echo "init chaincode on peer0.org1..."
-	instantiateChaincode2 0 1
+#	instantiateChaincode2 0 1
 	# Query on chaincode on peer0.org1, check if the result is 90
 	echo "Querying chaincode on peer0.org1..."
+	chaincodeInvoke 0 1
 	chaincodeQuery2 0 1 90
 exit 0
