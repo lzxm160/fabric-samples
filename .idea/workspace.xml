@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5123099b-3735-49de-bd22-f942b6d011d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/first-network/byfn.sh" beforeDir="false" afterPath="$PROJECT_DIR$/first-network/byfn.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh" beforeDir="false" afterPath="$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,16 +21,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="330">
+              <caret line="102" column="23" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -72,8 +72,8 @@
       <list>
         <option value="$PROJECT_DIR$/first-network/scripts/scriptforlaoyu.sh" />
         <option value="$PROJECT_DIR$/first-network/scripts/scriptonlycallforlaoyu.sh" />
-        <option value="$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh" />
         <option value="$PROJECT_DIR$/first-network/byfn.sh" />
+        <option value="$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh" />
       </list>
     </option>
   </component>
@@ -243,17 +243,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="495" column="23" selection-start-line="495" selection-start-column="23" selection-end-line="495" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="102" column="23" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
         </state>
       </provider>
     </entry>
