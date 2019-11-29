@@ -21,20 +21,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+            <state relative-caret-position="308">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="194" column="46" selection-start-line="194" selection-start-column="46" selection-end-line="194" selection-end-column="46" />
+            <state relative-caret-position="198">
+              <caret line="495" column="23" selection-start-line="495" selection-start-column="23" selection-end-line="495" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -56,6 +56,8 @@
       <find>commitChaincodeDefinition</find>
       <find>chaincodeQuery</find>
       <find>chaincodeInvoke</find>
+      <find>$CHANNEL_NAME</find>
+      <find>CHANNEL_NAME</find>
     </findStrings>
     <dirStrings>
       <dir>E:\work\gopath\src\github.com\hyperledger\fabric-samples\first-network</dir>
@@ -70,8 +72,8 @@
       <list>
         <option value="$PROJECT_DIR$/first-network/scripts/scriptforlaoyu.sh" />
         <option value="$PROJECT_DIR$/first-network/scripts/scriptonlycallforlaoyu.sh" />
-        <option value="$PROJECT_DIR$/first-network/byfn.sh" />
         <option value="$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh" />
+        <option value="$PROJECT_DIR$/first-network/byfn.sh" />
       </list>
     </option>
   </component>
@@ -241,17 +243,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
+    <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="194" column="46" selection-start-line="194" selection-start-column="46" selection-end-line="194" selection-end-column="46" />
+        <state relative-caret-position="308">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
+    <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+        <state relative-caret-position="198">
+          <caret line="495" column="23" selection-start-line="495" selection-start-column="23" selection-end-line="495" selection-end-column="23" />
         </state>
       </provider>
     </entry>
