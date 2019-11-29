@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptcallforlaoyu.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-968">
-              <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+            <state relative-caret-position="198">
+              <caret line="91" column="90" selection-start-line="91" selection-start-column="90" selection-end-line="91" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -94,6 +94,7 @@
       <find>chaincodeInvoke</find>
       <find>CC_SRC_PATH</find>
       <find>$CHANNEL_NAME</find>
+      <find>$chaincodename</find>
     </findStrings>
     <dirStrings>
       <dir>E:\work\gopath\src\github.com\hyperledger\fabric-samples\first-network\scripts</dir>
@@ -329,8 +330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptcallforlaoyu.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-968">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+        <state relative-caret-position="198">
+          <caret line="91" column="90" selection-start-line="91" selection-start-column="90" selection-end-line="91" selection-end-column="90" />
         </state>
       </provider>
     </entry>

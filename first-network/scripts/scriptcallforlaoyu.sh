@@ -26,12 +26,12 @@ instantiateChaincode2() {
   # the "-o" option
   if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
     set -x
-    peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n $chaincodename -l ${LANGUAGE} -v ${VERSION} -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
+    peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n ${chaincodename} -l ${LANGUAGE} -v ${VERSION} -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
     res=$?
     set +x
   else
     set -x
-    peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n $chaincodename -l ${LANGUAGE} -v 1.0 -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
+    peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${chaincodename} -l ${LANGUAGE} -v 1.0 -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
     res=$?
     set +x
   fi
@@ -57,7 +57,7 @@ chaincodeQuery2() {
     sleep $DELAY
     echo "Attempting to Query peer${PEER}.org${ORG} ...$(($(date +%s) - starttime)) secs"
     set -x
-    peer chaincode query -C $CHANNEL_NAME -n $chaincodename -c '{"Args":["query","c"]}' >&log.txt
+    peer chaincode query -C $CHANNEL_NAME -n ${chaincodename} -c '{"Args":["query","c"]}' >&log.txt
     res=$?
     set +x
     test $res -eq 0 && VALUE=$(cat log.txt | awk '/Query Result/ {print $NF}')
@@ -89,12 +89,12 @@ chaincodeInvoke() {
   # it using the "-o" option
   if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
     set -x
-    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n $chaincodename $PEER_CONN_PARMS -c '{"Args":["invoke","c","d","100"]}' >&log.txt
+    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n ${chaincodename} $PEER_CONN_PARMS -c '{"Args":["invoke","c","d","100"]}' >&log.txt
     res=$?
     set +x
   else
     set -x
-    peer chaincode invoke -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n $chaincodename $PEER_CONN_PARMS -c '{"Args":["invoke","c","d","100"]}' >&log.txt
+    peer chaincode invoke -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${chaincodename} $PEER_CONN_PARMS -c '{"Args":["invoke","c","d","100"]}' >&log.txt
     res=$?
     set +x
   fi
