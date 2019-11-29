@@ -3,13 +3,13 @@
 CHANNEL_NAME="foodchainchannel"
 DELAY="3"
 LANGUAGE="golang"
-TIMEOUT="10"
+TIMEOUT="20"
 VERBOSE="false"
 NO_CHAINCODE="true"
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
 COUNTER=1
 MAX_RETRY=10
-
+chaincodename ="mycc"
 echo "Channel name : "$CHANNEL_NAME
 export PATH=${PWD}/../bin:${PWD}:$PATH
 #export FABRIC_CFG_PATH=${PWD}
@@ -20,18 +20,18 @@ instantiateChaincode2() {
   ORG=$2
   setGlobals $PEER $ORG
   VERSION=${3:-1.0}
-  call='{"Args":["init","123","111111111111111111111111111111111111111111111111111111111","456","2222222222222222222222222222222222222222222222222222222222"]}'
+  call='{"Args":["init","c","1000","d","2000"]}'
   # while 'peer chaincode' command can get the orderer endpoint from the peer
   # (if join was successful), let's supply it directly as we know it using
   # the "-o" option
   if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
     set -x
-    peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n myccc -l ${LANGUAGE} -v ${VERSION} -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
+    peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n $chaincodename -l ${LANGUAGE} -v ${VERSION} -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
     res=$?
     set +x
   else
     set -x
-    peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n myccc -l ${LANGUAGE} -v 1.0 -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
+    peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n $chaincodename -l ${LANGUAGE} -v 1.0 -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
     res=$?
     set +x
   fi
@@ -40,7 +40,6 @@ instantiateChaincode2() {
   echo "===================== Chaincode is instantiated on peer${PEER}.org${ORG} on channel '$CHANNEL_NAME' ===================== "
   echo
 }
-
 chaincodeQuery2() {
   PEER=$1
   ORG=$2
@@ -58,7 +57,7 @@ chaincodeQuery2() {
     sleep $DELAY
     echo "Attempting to Query peer${PEER}.org${ORG} ...$(($(date +%s) - starttime)) secs"
     set -x
-    peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}' >&log.txt
+    peer chaincode query -C $CHANNEL_NAME -n $chaincodename -c '{"Args":["query","c"]}' >&log.txt
     res=$?
     set +x
     test $res -eq 0 && VALUE=$(cat log.txt | awk '/Query Result/ {print $NF}')
@@ -90,12 +89,12 @@ chaincodeInvoke() {
   # it using the "-o" option
   if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
     set -x
-    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["invoke","a","b","10"]}' >&log.txt
+    peer chaincode invoke -o orderer.example.com:7050 -C $CHANNEL_NAME -n $chaincodename $PEER_CONN_PARMS -c '{"Args":["invoke","c","d","100"]}' >&log.txt
     res=$?
     set +x
   else
     set -x
-    peer chaincode invoke -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc $PEER_CONN_PARMS -c '{"Args":["invoke","a","b","10"]}' >&log.txt
+    peer chaincode invoke -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n $chaincodename $PEER_CONN_PARMS -c '{"Args":["invoke","c","d","100"]}' >&log.txt
     res=$?
     set +x
   fi
@@ -109,9 +108,9 @@ chaincodeInvoke() {
 
 	## Install chaincode on peer0.org1
 	echo "init chaincode on peer0.org1..."
-#	instantiateChaincode2 0 1
+	instantiateChaincode2 0 1
 	# Query on chaincode on peer0.org1, check if the result is 90
 	echo "Querying chaincode on peer0.org1..."
 	chaincodeInvoke 0 1
-	chaincodeQuery2 0 1 90
+	chaincodeQuery2 0 1 900
 exit 0
