@@ -1,11 +1,11 @@
 #!/bin/bash
 
-CHANNEL_NAME:="foodchainchannel"
-DELAY:="3"
-LANGUAGE:="golang"
-TIMEOUT:="10"
-VERBOSE:="false"
-NO_CHAINCODE:="true"
+CHANNEL_NAME="foodchainchannel"
+DELAY="3"
+LANGUAGE="golang"
+TIMEOUT="10"
+VERBOSE="false"
+NO_CHAINCODE="true"
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
 COUNTER=1
 MAX_RETRY=10
