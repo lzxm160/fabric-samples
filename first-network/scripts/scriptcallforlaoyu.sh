@@ -1,11 +1,5 @@
 #!/bin/bash
 
-CHANNEL_NAME="$1"
-DELAY="$2"
-LANGUAGE="$3"
-TIMEOUT="$4"
-VERBOSE="$5"
-NO_CHAINCODE="$6"
 : ${CHANNEL_NAME:="foodchainchannel"}
 : ${DELAY:="3"}
 : ${LANGUAGE:="golang"}
@@ -15,15 +9,6 @@ NO_CHAINCODE="$6"
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
 COUNTER=1
 MAX_RETRY=10
-
-CC_SRC_PATH="github.com/chaincode/chaincode_example02/go/"
-if [ "$LANGUAGE" = "node" ]; then
-	CC_SRC_PATH="/opt/gopath/src/github.com/chaincode/chaincode_example02/node/"
-fi
-
-if [ "$LANGUAGE" = "java" ]; then
-	CC_SRC_PATH="/opt/gopath/src/github.com/chaincode/chaincode_example02/java/"
-fi
 
 echo "Channel name : "$CHANNEL_NAME
 export PATH=${PWD}/../bin:${PWD}:$PATH
@@ -60,7 +45,7 @@ instantiateChaincode2() {
 
 	## Install chaincode on peer0.org1
 	echo "init chaincode on peer0.org1..."
-#	instantiateChaincode2 0 1
+	instantiateChaincode2 0 1
 	# Query on chaincode on peer0.org1, check if the result is 90
 	echo "Querying chaincode on peer0.org1..."
 	chaincodeQuery 0 1 80

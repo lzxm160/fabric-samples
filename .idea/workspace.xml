@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5123099b-3735-49de-bd22-f942b6d011d0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/first-network/scripts/scriptcallforlaoyu.sh" beforeDir="false" afterPath="$PROJECT_DIR$/first-network/scripts/scriptcallforlaoyu.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,11 +13,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptcallforlaoyu.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+            <state relative-caret-position="44">
+              <caret line="2" selection-start-line="2" selection-end-line="7" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="12" selection-start-line="16" selection-end-line="16" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="593" column="11" selection-start-line="593" selection-start-column="2" selection-end-line="593" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/first-network/byfncallchaincodeforlaoyu.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -30,12 +58,13 @@
       <find>Querying chaincode</find>
       <find>commitChaincodeDefinition</find>
       <find>chaincodeInvoke</find>
-      <find>$CHANNEL_NAME</find>
       <find>installChaincode</find>
       <find>chaincodeQuery</find>
       <find>instantiateChaincode</find>
       <find>CHANNEL_NAME</find>
       <find>FABRIC_CFG_PATH</find>
+      <find>$CHANNEL_NAME</find>
+      <find>networkUp</find>
     </findStrings>
     <dirStrings>
       <dir>E:\work\gopath\src\github.com\hyperledger\fabric-samples\first-network\scripts</dir>
@@ -54,6 +83,7 @@
         <option value="$PROJECT_DIR$/first-network/byfn.sh" />
         <option value="$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh" />
         <option value="$PROJECT_DIR$/first-network/scripts/scriptcallforlaoyu.sh" />
+        <option value="$PROJECT_DIR$/first-network/byfncallchaincodeforlaoyu.sh" />
       </list>
     </option>
   </component>
@@ -228,22 +258,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptdeployforlaoyu.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="94" column="24" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="29" />
+        <state relative-caret-position="352">
+          <caret line="16" column="12" selection-start-line="16" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/first-network/scripts/scriptcallforlaoyu.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+        <state relative-caret-position="44">
+          <caret line="2" selection-start-line="2" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/first-network/byfn.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="593" column="11" selection-start-line="593" selection-start-column="2" selection-end-line="593" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/first-network/byfncallchaincodeforlaoyu.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
