@@ -20,7 +20,7 @@ instantiateChaincode2() {
   ORG=$2
   setGlobals $PEER $ORG
   VERSION=${3:-1.0}
-  call='{"Args":["init","123","111111111111111111111111111111111111111111111111111111111"]}'
+  call='{"Args":["init","123","111111111111111111111111111111111111111111111111111111111","456","2222222222222222222222222222222222222222222222222222222222"]}'
   # while 'peer chaincode' command can get the orderer endpoint from the peer
   # (if join was successful), let's supply it directly as we know it using
   # the "-o" option
