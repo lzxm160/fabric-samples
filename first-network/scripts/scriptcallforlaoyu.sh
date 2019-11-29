@@ -87,5 +87,5 @@ chaincodeInvoke() {
 	# Query on chaincode on peer0.org1, check if the result is 90
 	echo "Querying chaincode on peer0.org1..."
 	chaincodeInvoke 0 1 0 2
-	chaincodeQuery 0 1 90
+	chaincodeQuery 0 1 70
 exit 0
