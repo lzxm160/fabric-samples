@@ -40,6 +40,47 @@ instantiateChaincode2() {
   echo "===================== Chaincode is instantiated on peer${PEER}.org${ORG} on channel '$CHANNEL_NAME' ===================== "
   echo
 }
+
+chaincodeQuery2() {
+  PEER=$1
+  ORG=$2
+  setGlobals $PEER $ORG
+  EXPECTED_RESULT=$3
+  echo "===================== Querying on peer${PEER}.org${ORG} on channel '$CHANNEL_NAME'... ===================== "
+  local rc=1
+  local starttime=$(date +%s)
+
+  # continue to poll
+  # we either get a successful response, or reach TIMEOUT
+  while
+    test "$(($(date +%s) - starttime))" -lt "$TIMEOUT" -a $rc -ne 0
+  do
+    sleep $DELAY
+    echo "Attempting to Query peer${PEER}.org${ORG} ...$(($(date +%s) - starttime)) secs"
+    set -x
+    peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}' >&log.txt
+    res=$?
+    set +x
+    test $res -eq 0 && VALUE=$(cat log.txt | awk '/Query Result/ {print $NF}')
+    test "$VALUE" = "$EXPECTED_RESULT" && let rc=0
+    # removed the string "Query Result" from peer chaincode query command
+    # result. as a result, have to support both options until the change
+    # is merged.
+    test $rc -ne 0 && VALUE=$(cat log.txt | egrep '^[0-9]+$')
+    test "$VALUE" = "$EXPECTED_RESULT" && let rc=0
+  done
+  echo
+  cat log.txt
+  if test $rc -eq 0; then
+    echo "===================== Query successful on peer${PEER}.org${ORG} on channel '$CHANNEL_NAME' ===================== "
+  else
+    echo "!!!!!!!!!!!!!!! Query result on peer${PEER}.org${ORG} is INVALID !!!!!!!!!!!!!!!!"
+    echo "================== ERROR !!! FAILED to execute End-2-End Scenario =================="
+    echo
+    exit 1
+  fi
+}
+
 # import utils
 . scripts/utils.sh
 
@@ -48,19 +89,5 @@ instantiateChaincode2() {
 	instantiateChaincode2 0 1
 	# Query on chaincode on peer0.org1, check if the result is 90
 	echo "Querying chaincode on peer0.org1..."
-	chaincodeQuery 0 1 80
-
-
-echo
-echo "========= All GOOD, BYFN execution completed =========== "
-echo
-
-echo
-echo " _____   _   _   ____   "
-echo "| ____| | \ | | |  _ \  "
-echo "|  _|   |  \| | | | | | "
-echo "| |___  | |\  | | |_| | "
-echo "|_____| |_| \_| |____/  "
-echo
-
+	chaincodeQuery2 0 1 90
 exit 0
