@@ -102,7 +102,7 @@ if [ "${NO_CHAINCODE}" != "true" ]; then
 
 	# Invoke chaincode on peer0.org1
 	echo "Sending invoke transaction on peer0.org1..."
-	chaincodeInvoke 0 1
+	chaincodeInvoke 0 1 0 2
 	
 fi
 
