@@ -9,7 +9,7 @@ NO_CHAINCODE="true"
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
 COUNTER=1
 MAX_RETRY=10
-chaincodename ="mycc"
+chaincodename="mycc"
 echo "Channel name : "$CHANNEL_NAME
 export PATH=${PWD}/../bin:${PWD}:$PATH
 #export FABRIC_CFG_PATH=${PWD}
