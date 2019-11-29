@@ -15,32 +15,7 @@ export PATH=${PWD}/../bin:${PWD}:$PATH
 #export FABRIC_CFG_PATH=${PWD}
 export VERBOSE=false
 echo $FABRIC_CFG_PATH
-instantiateChaincode2() {
-  PEER=$1
-  ORG=$2
-  setGlobals $PEER $ORG
-  VERSION=${3:-1.0}
-  call='{"Args":["init","c","1000","d","2000"]}'
-  # while 'peer chaincode' command can get the orderer endpoint from the peer
-  # (if join was successful), let's supply it directly as we know it using
-  # the "-o" option
-  if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
-    set -x
-    peer chaincode instantiate -o orderer.example.com:7050 -C $CHANNEL_NAME -n ${chaincodename} -l ${LANGUAGE} -v ${VERSION} -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
-    res=$?
-    set +x
-  else
-    set -x
-    peer chaincode instantiate -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${chaincodename} -l ${LANGUAGE} -v 1.0 -c $call -P "AND ('Org1MSP.peer','Org2MSP.peer')" >&log.txt
-    res=$?
-    set +x
-  fi
-  cat log.txt
-  verifyResult $res "Chaincode instantiation on peer${PEER}.org${ORG} on channel '$CHANNEL_NAME' failed"
-  echo "===================== Chaincode is instantiated on peer${PEER}.org${ORG} on channel '$CHANNEL_NAME' ===================== "
-  echo
-}
-chaincodeQuery2() {
+chaincodeQuery() {
   PEER=$1
   ORG=$2
   setGlobals $PEER $ORG
@@ -112,5 +87,5 @@ chaincodeInvoke() {
 	# Query on chaincode on peer0.org1, check if the result is 90
 	echo "Querying chaincode on peer0.org1..."
 	chaincodeInvoke 0 1
-	chaincodeQuery2 0 1 90
+	chaincodeQuery 0 1 90
 exit 0
